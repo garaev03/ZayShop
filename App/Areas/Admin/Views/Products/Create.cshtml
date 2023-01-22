@@ -1,0 +1,130 @@
+﻿@model ProductPostDto
+@{
+    ViewData["Title"] = "Create";
+    List<CategoryGetDto>? cats = ViewData["Categories"] as List<CategoryGetDto>;
+    List<BrandGetDto>? brands = ViewData["Brands"] as List<BrandGetDto>;
+    List<SizeGetDto>? sizes = ViewData["Sizes"] as List<SizeGetDto>;
+    List<ColorGetDto>? colors = ViewData["Colors"] as List<ColorGetDto>;
+    List<DiscountGetDto>? discounts = ViewData["Discounts"] as List<DiscountGetDto>;
+    List<SpesificationGetDto>? spesis = ViewData["Spesifications"] as List<SpesificationGetDto>;
+}
+
+<h2>Product Create</h2>
+<div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+@if (cats != null && sizes != null && colors != null && discounts != null && brands != null && spesis != null)
+{
+    <form method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" type="text" class="form-control">
+            <span class="text text-danger" asp-validation-for="Name"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Description" class="form-label">Description</label>
+            <input asp-for="Description" type="text" class="form-control">
+            <span class="text text-danger" asp-validation-for="Description"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Images" class="form-label">Images Upload</label>
+            <input asp-for="Images" type="file" class="form-control" multiple>
+            <span class="text text-danger" asp-validation-for="Images"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="CategoryId" class="form-label">Select Category</label>
+            <select asp-for="CategoryId" class="form-control" single>
+                @foreach (var item in cats)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+            <span class="text text-danger" asp-validation-for="CategoryId"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="BrandId" class="form-label">Select Brand</label>
+            <select asp-for="BrandId" class="form-control" single>
+                @foreach (var item in brands)
+                {
+                    <option value="@item.Id">@item.Name</option>
+                }
+            </select>
+            <span class="text text-danger" asp-validation-for="BrandId"></span>
+        </div>
+        <div class="mb-3">
+            <label>Select Spesifications</label>
+            <div>
+                @foreach (var item in spesis)
+                {
+                    <input style="font-size:20px" name="SpesificationIds" value="@item.Id" type="checkbox" class="form-check-input">
+                    <label style="font-size:20px" asp-for="SpesificationIds" class="form-check-label me-2">@item.Title</label>
+                }
+            </div>
+            <span class="text text-danger" asp-validation-for="SpesificationIds"></span>
+        </div>
+        <div class="main-section mb-3">
+            <div class="main-box">
+                <div class="main d-flex justify-content-between">
+                    <div class="sizes w-25">
+                        <label asp-for="SizeIds" class="form-label">Select Size</label>
+                        <select name="SizeIds" class="form-control" single>
+                            @foreach (var item in sizes)
+                            {
+                                <option value="@item.Id">@item.Value</option>
+                            }
+                        </select>
+                        <span class="text text-danger" asp-validation-for="SizeIds"></span>
+                    </div>
+                    <div class="discounts ms-4">
+                        <label asp-for="DiscountIds" class="form-label">Select Discount</label>
+                        <select name="DiscountIds" class="form-control" single>
+                            @foreach (var item in discounts)
+                            {
+                                <option value="@item.Id">@item.Percent</option>
+                            }
+                        </select>
+                        <span class="text text-danger" asp-validation-for="DiscountIds"></span>
+                    </div>
+                    <div class="colors ms-4">
+                        <label class="form-label">Select Colors</label>
+                        <div>
+                            @foreach (var item in colors)
+                            {
+                                <input style="font-size:20px" name="ColorIds" value="@item.Id" type="checkbox" class="form-check-input">
+                                <label style="font-size:20px" asp-for="ColorIds" class="form-check-label me-2">@item.Value</label>
+                            }
+                            <input hidden asp-for="ColorIds" value="-1">
+                        </div>
+                        <span class="text text-danger" asp-validation-for="ColorIds"></span>
+                    </div>
+                    <div class="buy-prices ms-4">
+                        <label asp-for="BuyPrices" class="form-label">Enter buy price</label>
+                        <div>
+                            <input name="BuyPrices" type="number" style="width:8rem">
+                        </div>
+                        <span class="text text-danger" asp-validation-for="BuyPrices"></span>
+                    </div>
+                    <div class="sell-prices ms-4">
+                        <label asp-for="SellPrices" class="form-label">Enter sell price</label>
+                        <div>
+                            <input name="SellPrices" type="number" style="width:8rem">
+                        </div>
+                        <span class="text text-danger" asp-validation-for="SellPrices"></span>
+                    </div>
+                    <div class="counts ms-4">
+                        <label asp-for="Counts" class="form-label">Enter Count</label>
+                        <div>
+                            <input name="Counts" type="number" style="width:8rem">
+                        </div>
+                        <span class="text text-danger" asp-validation-for="Counts"></span>
+                    </div>
+                </div>
+            </div>
+            <a class="add-main mt-2 btn btn-md btn-success text-light"><i class="fas fa-plus"></i></a>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        <a asp-action="Index" class="btn btn-outline-danger mt-3">Cancel</a>
+    </form>
+}
+else
+{
+    <div>No Category/Size/Color/Discount/Brand/Spesification detected. Please add some.</div>
+}

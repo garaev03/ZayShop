@@ -1,0 +1,46 @@
+﻿@model List<ProductGetDto>
+@{
+    ViewData["Title"] = "Products";
+}
+<h2>Products</h2>
+<div>
+    <a asp-action="Create" class="btn btn-outline-success">
+        Add Product
+    </a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Category</th>
+            <th scope="col">Brand</th>
+            <th scope="col" class="text-center">Image</th>
+            <th scope="col" class="text-center">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr style="vertical-align:middle">
+                <td>@s.Id</td>
+                <td>@s.Name</td>
+                <td class="text-center">
+                    <img width="100" src="~/assets/img/category-images/@s.ProductImages.FirstOrDefault(x=>x.isMain).Path" />
+                </td>
+                <td class="text-center">
+                    <span>
+                        <a asp-action="Update" asp-route-id="@s.Id" class="btn btn-warning me-3">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@s.Id" class="btn btn-danger text-light">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

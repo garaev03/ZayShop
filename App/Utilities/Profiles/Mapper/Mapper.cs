@@ -31,6 +31,8 @@ namespace Zay.Utilities.Profiles.Mapper
 
             CreateMap<SpesificationPostDto, ProductSpesification>();
             CreateMap<SpesificationGetDto, ProductSpesification>().ReverseMap();
+
+            CreateMap<SpesificationGetDto, ProductSpesification>().ReverseMap();
         }
     }
 }

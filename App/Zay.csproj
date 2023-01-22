@@ -11,6 +11,7 @@
     <Folder Include="Areas\Admin\Models\" />
     <Folder Include="wwwroot\assets\img\brand-logos\" />
     <Folder Include="wwwroot\assets\img\category-images\" />
+    <Folder Include="wwwroot\assets\img\product-images\" />
   </ItemGroup>
 
   <ItemGroup>

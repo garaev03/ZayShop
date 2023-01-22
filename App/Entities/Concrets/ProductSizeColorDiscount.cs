@@ -14,5 +14,12 @@
         public Size Size { get; set; }
         public Color Color { get; set; }
         public Discount Discount { get; set; }
+        public ProductSizeColorDiscount()
+        {
+            Product = new();
+            Size = new();
+            Color = new();
+            Discount = new();
+        }
     }
 }
