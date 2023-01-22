@@ -1,0 +1,15 @@
+﻿@model DiscountUpdateDto
+@{
+    ViewData["Title"] = "Update Discount";
+}
+<h2>Discount Update</h2>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="getDto.Percent" class="form-label">Percent</label>
+        <input asp-for="postDto.Percent" type="text" class="form-control" value="@Model.getDto.Percent">
+        <span class="text text-danger" asp-validation-for="postDto.Percent"></span>
+        <input hidden asp-for="getDto.Id"/>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger mt-3">Cancel</a>
+</form>

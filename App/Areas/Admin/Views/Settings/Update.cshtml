@@ -1,0 +1,62 @@
+﻿@model SettingUpdateDto
+@{
+    ViewData["Title"] = "Update Settings";
+    int num = 1;
+}
+<h2>Settings Update</h2>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="@Model.settingGet.Logo" class="form-label">Logo</label>
+        <input asp-for="@Model.settingPost.Logo" type="text" class="form-control" value="@Model.settingGet.Logo">
+        <span class="text text-danger" asp-validation-for="@Model.settingPost.Logo"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.settingGet.Email" class="form-label">Email</label>
+        <input asp-for="@Model.settingPost.Email" type="email" class="form-control" value="@Model.settingGet.Email">
+        <span class="text text-danger" asp-validation-for="@Model.settingPost.Email"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.settingGet.PhoneNumber" class="form-label">Phonenumber</label>
+        <input asp-for="@Model.settingPost.PhoneNumber" type="text" class="form-control" value="@Model.settingGet.PhoneNumber">
+        <span class="text text-danger" asp-validation-for="@Model.settingPost.PhoneNumber"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="@Model.settingGet.Address" class="form-label">Address</label>
+        <input asp-for="@Model.settingPost.Address" type="text" class="form-control" value="@Model.settingGet.Address">
+        <span class="text text-danger" asp-validation-for="@Model.settingPost.Address"></span>
+    </div>
+    <div class="d-flex justify-content-between">
+        <div class="social-medias border p-3 w-50">
+            <div class="mb-3">
+                <label asp-for="@Model.settingGet.SocialMedias" class="form-label">Social Medias</label>
+                @foreach (var sm in Model.settingGet.SocialMedias)
+                {
+                    <h4>#@num</h4>
+                    <input asp-for="@Model.settingPost.SocialMediaIcons" class="form-control" value="@sm.Icon" placeholder="type icon here"/>
+                    <input asp-for="@Model.settingPost.SocialMediaLinks" class="form-control" value="@sm.Link" placeholder="type link here"/>
+                    <input asp-for="@Model.settingPost.SocialMediaIds" class="form-control" value="@sm.Id" hidden />
+                    num++;
+                }
+                <span class="text text-danger" asp-validation-for="@Model.settingPost.Address"></span>
+            </div>
+        </div>
+        @{num = 1;}
+        <div class="special-services border p-3 w-50">
+            <div class="mb-3">
+                <label asp-for="@Model.settingGet.SpecialServices" class="form-label">Special Services</label>
+                @foreach (var ss in Model.settingGet.SpecialServices)
+                {
+                    <h4>#@num</h4>
+                    <input asp-for="@Model.settingPost.SpecialServiceLogos" class="form-control" value="@ss.Logo" placeholder="type logo here"/>
+                    <input asp-for="@Model.settingPost.SpecialServiceNames" class="form-control" value="@ss.Name" placeholder="type name here" />
+                    <input asp-for="@Model.settingPost.SpecialServiceIds" class="form-control" value="@ss.Id" hidden />
+                    num++;
+                }
+                <span class="text text-danger" asp-validation-for="@Model.settingPost.Address"></span>
+            </div>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary mt-3" disabled>Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger mt-3">Cancel</a>
+</form>

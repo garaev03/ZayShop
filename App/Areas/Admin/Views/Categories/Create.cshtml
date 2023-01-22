@@ -1,0 +1,20 @@
+﻿@model CategoryPostDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Category Create</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" type="text" class="form-control">
+        <span class="text text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Image" class="form-label">Image Upload</label>
+        <input asp-for="Image" type="file" class="form-control">
+        <span class="text text-danger" asp-validation-for="Image"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger mt-3">Cancel</a>
+</form>

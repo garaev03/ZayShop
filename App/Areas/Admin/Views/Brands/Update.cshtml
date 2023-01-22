@@ -1,0 +1,31 @@
+﻿@model BrandUpdateDto
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h2>Brand Update</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="getDto.Name" class="form-label">Name</label>
+        <input asp-for="postDto.Name" type="text" class="form-control" value="@Model.getDto.Name">
+        <span class="text text-danger" asp-validation-for="postDto.Name"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="getDto.Link" class="form-label">Link</label>
+        <input asp-for="postDto.Link" type="text" class="form-control" value="@Model.getDto.Link">
+        <span class="text text-danger" asp-validation-for="postDto.Link"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="postDto.Logo" class="form-label">Logo Upload</label>
+        <input asp-for="postDto.Logo" type="file" class="form-control">
+        <span class="text text-danger" asp-validation-for="postDto.Logo"></span>
+    </div>
+    <div>
+        <img width="100" src="~/assets/img/brand-logos/@Model.getDto.Logo" />
+    </div>
+    <input hidden asp-for="getDto.Id" />
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger mt-3">Cancel</a>
+</form>
+
+

@@ -1,0 +1,18 @@
+﻿@model ColorPostDto
+@{
+    ViewData["Title"] = "Create Color";
+}
+
+
+<h2>Color Create</h2>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Value" class="form-label">Value</label>
+        <input asp-for="Value" type="text" class="form-control">
+        <span class="text text-danger" asp-validation-for="Value"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger mt-3">Cancel</a>
+</form>
+
+

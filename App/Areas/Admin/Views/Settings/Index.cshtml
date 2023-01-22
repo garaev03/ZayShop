@@ -1,0 +1,47 @@
+﻿@model SettingGetDto
+@{
+    ViewData["Title"] = "Settings";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Logo</th>
+            <th scope="col">Phone number</th>
+            <th scope="col">Address</th>
+            <th scope="col">Email</th>
+            <th scope="col">Social Medias</th>
+            <th scope="col">Special Services</th>
+            <th scope="col" class="text-center">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>@Model.Logo</td>
+            <td>@Model.PhoneNumber</td>
+            <td>@Model.Address</td>
+            <td>@Model.Email</td>
+            <td>
+                @foreach (var sm in Model.SocialMedias)
+                {
+                    @Html.Raw(sm.Icon)
+                }
+            </td>
+            <td>
+                @foreach (var ss in Model.SpecialServices)
+                {
+                    <span class="me-2">
+                        @Html.Raw(ss.Logo)
+                    </span>
+                }
+            </td>
+            <td class="text-center">
+                <a asp-action="Update">
+                    <i class="fas fa-edit"></i>
+                </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+                    

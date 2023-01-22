@@ -1,0 +1,42 @@
+﻿@model List<DiscountGetDto>
+@{
+    ViewData["Title"] = "Discount";
+}
+
+
+<h2>Discounts</h2>
+<div>
+    <a asp-action="Create" class="btn btn-outline-success">
+        Add Discount
+    </a>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Percent</th>
+            <th scope="col" class="text-center">Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var s in Model)
+        {
+            <tr>
+                <td>@s.Id</td>
+                <td>@s.Percent</td>
+                <td class="text-center">
+                    <span>
+                        <a asp-action="Update" asp-route-id="@s.Id" class="btn btn-warning me-3">
+                            <i class="fas fa-edit"></i>
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@s.Id" class="btn btn-danger text-light">
+                            <i class="fas fa-trash-alt"></i>
+                        </a>
+                    </span>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

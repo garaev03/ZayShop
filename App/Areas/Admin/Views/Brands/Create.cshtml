@@ -1,0 +1,26 @@
+﻿@model BrandPostDto
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Brand Create</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" type="text" class="form-control">
+        <span class="text text-danger" asp-validation-for="Name"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Link" class="form-label">Link</label>
+        <input asp-for="Link" type="text" class="form-control">
+        <span class="text text-danger" asp-validation-for="Link"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="Logo" class="form-label">Logo Upload</label>
+        <input asp-for="Logo" type="file" class="form-control">
+        <span class="text text-danger" asp-validation-for="Logo"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger mt-3">Cancel</a>
+</form>
+

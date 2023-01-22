@@ -1,0 +1,15 @@
+﻿@model SpesificationPostDto
+@{
+    ViewData["Title"] = "Create";
+}
+<h2>Spesifiation Create</h2>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label">Title</label>
+        <input asp-for="Title" type="text" class="form-control">
+        <span class="text text-danger" asp-validation-for="Title"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger mt-3">Cancel</a>
+</form>
+

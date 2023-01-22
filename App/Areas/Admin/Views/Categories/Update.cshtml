@@ -1,0 +1,24 @@
+﻿@model CategoryUpdateDto
+@{
+    ViewData["Title"] = "Update";
+}
+<h2>Category Update</h2>
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label asp-for="getDto.Name" class="form-label">Name</label>
+        <input asp-for="postDto.Name" type="text" class="form-control" value="@Model.getDto.Name">
+        <span class="text text-danger" asp-validation-for="postDto.Name"></span>
+    </div>
+    <div class="mb-3">
+        <label asp-for="postDto.Image" class="form-label">Image Upload</label>
+        <input asp-for="postDto.Image" type="file" class="form-control">
+        <span class="text text-danger" asp-validation-for="postDto.Image"></span>
+    </div>
+    <div>
+        <img width="100" src="~/assets/img/category-images/@Model.getDto.Image" />
+    </div>
+    <input hidden asp-for="getDto.Id" />
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger mt-3">Cancel</a>
+</form>
+

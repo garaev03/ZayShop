@@ -1,0 +1,17 @@
+﻿@model SpesificationUpdateDto
+@{
+    ViewData["Title"] = "Update";
+}
+<h2>Spesification Update</h2>
+<form method="post">
+    <div class="mb-3">
+        <label asp-for="getDto.Title" class="form-label">Title</label>
+        <input asp-for="postDto.Title" type="text" class="form-control" value="@Model.getDto.Title">
+        <span class="text text-danger" asp-validation-for="postDto.Title"></span>
+        <input hidden asp-for="getDto.Id"/>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+    <a asp-action="Index" class="btn btn-outline-danger mt-3">Cancel</a>
+</form>
+
+
