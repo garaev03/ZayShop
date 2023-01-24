@@ -55,17 +55,13 @@ namespace Zay.Business.Services.Implementations
         }
         public async Task Create(ProductPostDto postDto)
         {
-            BrandGetDto brand = await _brandService.GetByIdAsync(postDto.BrandId);
-            if (brand is null) throw new Exception("Invalid Brand.");
-
-            CategoryGetDto category = await _categoryService.GetByIdAsync(postDto.CategoryId);
-            if (category is null) throw new Exception("Invalid Category.");
-
             List<List<int>> Colors = GetColors(postDto.ColorIds);
             List<ProductSizeColorDiscount> pscd = await GetSizeColorDiscountAsync(postDto.SizeIds, Colors, postDto.DiscountIds, postDto.Counts, postDto.BuyPrices, postDto.SellPrices);
 
             if (postDto.Images.Count == 0) throw new Exception("Enter at least 1 image.");
             List<ProductImage> Images = await CheckAndCreateImage(postDto.Images);
+
+            await _repository.CheckAsync(x=>x.Id==3);
 
             Product NewProduct = new()
             {
@@ -75,8 +71,8 @@ namespace Zay.Business.Services.Implementations
                 ProductImages = Images,
                 ShowSalePrice = postDto.SellPrices.FirstOrDefault(),
                 TotalCount = GetTotalCount(postDto.Counts),
-                Brand = _mapper.Map<Brand>(brand),
-                Category = _mapper.Map<Category>(category),
+                BrandId = postDto.BrandId,
+                CategoryId = postDto.CategoryId,
                 ProductSizeColorDiscounts = pscd,
                 Spesifications = await GetSpesifications(postDto.SpesificationIds),
             };

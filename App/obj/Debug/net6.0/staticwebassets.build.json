@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "+55/dIyj156obEcwybI38cvfeEmIsU4nMbmJlNBeigw=",
+  "Hash": "x+Raz/3yNMhEJBOL1Ok8g6ye2FxpNfo6ZL8Ws7JPFcc=",
   "Source": "Zay",
   "BasePath": "_content/Zay",
   "Mode": "Default",
@@ -10523,6 +10523,23 @@
       "OriginalItemSpec": "wwwroot\\assets\\img\\product_single_10.jpg"
     },
     {
+      "Identity": "C:\\Users\\samir\\OneDrive\\Desktop\\Zay\\App\\wwwroot\\assets\\img\\product-images\\93db434b-be9f-4bba-912c-5eb2c3d88914-brand_03.png",
+      "SourceId": "Zay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\samir\\OneDrive\\Desktop\\Zay\\App\\wwwroot\\",
+      "BasePath": "_content/Zay",
+      "RelativePath": "assets/img/product-images/93db434b-be9f-4bba-912c-5eb2c3d88914-brand_03.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product-images\\93db434b-be9f-4bba-912c-5eb2c3d88914-brand_03.png"
+    },
+    {
       "Identity": "C:\\Users\\samir\\OneDrive\\Desktop\\Zay\\App\\wwwroot\\assets\\img\\product-images\\948516ba-0f63-461f-9395-9ec69d651c16-banner_img_03.jpg",
       "SourceId": "Zay",
       "SourceType": "Discovered",
@@ -10538,6 +10555,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\assets\\img\\product-images\\948516ba-0f63-461f-9395-9ec69d651c16-banner_img_03.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\samir\\OneDrive\\Desktop\\Zay\\App\\wwwroot\\assets\\img\\product-images\\adc84631-0cf3-4674-8bc7-18c41076cc16-brand_03.png",
+      "SourceId": "Zay",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\samir\\OneDrive\\Desktop\\Zay\\App\\wwwroot\\",
+      "BasePath": "_content/Zay",
+      "RelativePath": "assets/img/product-images/adc84631-0cf3-4674-8bc7-18c41076cc16-brand_03.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\assets\\img\\product-images\\adc84631-0cf3-4674-8bc7-18c41076cc16-brand_03.png"
     },
     {
       "Identity": "C:\\Users\\samir\\OneDrive\\Desktop\\Zay\\App\\wwwroot\\assets\\img\\product-images\\c379b795-9338-4543-87ac-8bcddfe0597b-banner_img_03.jpg",
